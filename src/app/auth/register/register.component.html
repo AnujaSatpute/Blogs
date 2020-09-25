@@ -1,0 +1,81 @@
+<div class="container d-flex justify-content-center">
+    <form class="form-signin form-content-width border border-light p-5 " style="width: 50%;"
+        [formGroup]="registerForm">
+
+        <h1 class="h3 mb-3 font-weight-normal text-center">Please Register</h1>
+        <div class="form-group ">
+            <label for="inputName" class="sr-only">Name</label>
+            <input type="text" id="inputName" [formControlName]="'name'" class="form-control" placeholder="Name"
+                autofocus="">
+            <div *ngIf="registerForm.get('name').touched">
+                <label *ngIf="registerForm.get('name').hasError('required')" class="text-danger warning-messages">Name
+                    is required</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="sr-only">Email</label>
+            <input type="text" id="inputEmail" [formControlName]="'email'" class="form-control" placeholder="Email"
+                autofocus="">
+            <div *ngIf="registerForm?.get('email')?.touched">
+                <label *ngIf="registerForm?.get('email')?.hasError('pattern')"
+                    class="text-danger warning-messages">Invalid
+                    Email Id</label>
+                <label *ngIf="registerForm?.get('email')?.hasError('required')"
+                    class="text-danger warning-messages">Email
+                    Id is Required</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputNumber" class="sr-only">Contact No</label>
+            <input type="text" id="inputNumber" [formControlName]="'number'" class="form-control"
+                placeholder="Contact No" autofocus="" maxlength="10">
+            <div *ngIf="registerForm?.get('number')?.touched">
+                <label *ngIf="registerForm?.get('number')?.hasError('pattern')"
+                    class="text-danger warning-messages">Invalid
+                    Contact number</label>
+                <label *ngIf="registerForm?.get('number')?.hasError('required')"
+                    class="text-danger warning-messages">Contact number
+                    is required</label>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="inputLinkedUrl" class="sr-only">Linked In</label>
+            <input type="text" id="inputLinkedUrl" [formControlName]="'linkedin'" class="form-control"
+                placeholder="Linked In " autofocus="">
+
+        </div>
+        <div class="form-group">
+            <label for="inputDescription" class="sr-only">Self Description</label>
+            <textarea type="text" id="inputDescription" [formControlName]="'description'" class="form-control"
+                placeholder="Self Description" autofocus=""></textarea>
+            <div *ngIf="registerForm?.get('description')?.touched">
+                <label *ngIf="registerForm?.get('description')?.hasError('required')"
+                    class="text-danger warning-messages">Description
+                    is required</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" [formControlName]="'password'" class="form-control"
+                placeholder="Password" maxlength="15">
+            <div *ngIf="registerForm?.get('password')?.touched">
+                <label *ngIf="registerForm?.get('password')?.hasError('required')"
+                    class="text-danger warning-messages">Password
+                    is required</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
+            <input type="password" id="inputConfirmPassword" [formControlName]="'confirmPassword'" class="form-control"
+                placeholder="Confirm Password" maxlength="15">
+            <div *ngIf="registerForm?.get('confirmPassword')?.touched">
+                <label *ngIf="registerForm?.get('confirmPassword')?.hasError('required')"
+                    class="text-danger warning-messages">Confirm Password
+                    is required</label>
+                <label *ngIf="registerForm?.get('confirmPassword')?.hasError('mismatch')"
+                    class="text-danger warning-messages">Password do not matched</label>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit" [disabled]="!registerForm.valid">Sign up</button>
+    </form>
+</div>
