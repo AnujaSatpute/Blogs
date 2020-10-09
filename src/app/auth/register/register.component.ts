@@ -13,7 +13,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private customValidation: CustomValidationService) {
     this.registerForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
+     fname: ['', [Validators.required]],
+     lname: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]],
       password: ['', [Validators.required]],
       confirmPassword: ['', [Validators.required]],
@@ -30,8 +31,4 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
-
-
 }

@@ -10,6 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddPostComponent } from './add-post/add-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { RegisterComponent } from './auth/register/register.component';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,8 @@ import { RegisterComponent } from './auth/register/register.component';
     HeaderComponent,
     LoginComponent,
     AddPostComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -25,10 +29,13 @@ import { RegisterComponent } from './auth/register/register.component';
     ReactiveFormsModule,
     AppRoutingModule,
     EditorModule,
+    HttpClientModule,
+    NgxWebstorageModule.forRoot(),
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'addPost', component: AddPostComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: 'register', component: RegisterComponent },
+      { path: 'home', component: HomeComponent }
     ]),
   ],
   providers: [],
