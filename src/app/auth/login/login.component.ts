@@ -39,11 +39,12 @@ export class LoginComponent implements OnInit {
     console.log(this.loginPayload);
 
     this.authService.login(this.loginPayload).subscribe(data => {
+      alert('Login successful')
       console.log(data);
       this.router.navigateByUrl("/home");
 
     }, error => {
-                alert('Login Unsuccessful');
+      alert('Login Unsuccessful');
     });
 
   }

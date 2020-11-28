@@ -13,6 +13,11 @@ import { RegisterComponent } from './auth/register/register.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { RegisterSuccessComponent } from './register-success/register-success.component';
+import { PostComponent } from './post/post.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { DraftComponent } from './draft/draft.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +26,11 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     AddPostComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterSuccessComponent,
+    PostComponent,
+    UpdateProfileComponent,
+    DraftComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +44,12 @@ import { HomeComponent } from './home/home.component';
       { path: 'login', component: LoginComponent },
       { path: 'addPost', component: AddPostComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'home', component: HomeComponent }
-    ]),
+      { path: 'home', component: HomeComponent },
+      { path: 'register-success', component: RegisterSuccessComponent },
+      { path: 'post/:id', component: PostComponent },
+      { path: 'update-profile', component: UpdateProfileComponent },
+      { path: 'draft', component: DraftComponent }
+     ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
