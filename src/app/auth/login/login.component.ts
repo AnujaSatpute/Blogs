@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { LoginPayload } from '../login-payload';
-
 
 @Component({
   selector: 'app-login',
@@ -11,27 +10,25 @@ import { LoginPayload } from '../login-payload';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  [x: string]: any;
 
 
   loginForm: FormGroup;
   loginPayload: LoginPayload;
 
-  constructor(private formBuilder: FormBuilder  ,private authService: AuthService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]],
       password: ['', [Validators.required]]
     })
-
     this.loginPayload = {
       email: '',
       password: ''
     }
-  
   }
 
   ngOnInit(): void {
   }
+
 
   onSubmit() {
     this.loginPayload.email = this.loginForm.get('email').value;
@@ -39,13 +36,15 @@ export class LoginComponent implements OnInit {
     console.log(this.loginPayload);
 
     this.authService.login(this.loginPayload).subscribe(data => {
-      alert('Login successful')
       console.log(data);
       this.router.navigateByUrl("/home");
 
     }, error => {
-      alert('Login Unsuccessful');
+      alert('Unsuccessful');
     });
 
+
+
   }
+
 }

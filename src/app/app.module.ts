@@ -10,14 +10,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddPostComponent } from './add-post/add-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { RegisterComponent } from './auth/register/register.component';
-import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HomeComponent } from './home/home.component';
 import { RegisterSuccessComponent } from './register-success/register-success.component';
 import { PostComponent } from './post/post.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { DraftComponent } from './draft/draft.component';
-
 
 @NgModule({
   declarations: [
@@ -35,21 +34,22 @@ import { DraftComponent } from './draft/draft.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
     EditorModule,
-    HttpClientModule,
     NgxWebstorageModule.forRoot(),
     RouterModule.forRoot([
+      { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'addPost', component: AddPostComponent },
+      { path: 'add-post', component: AddPostComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'home', component: HomeComponent },
-      { path: 'register-success', component: RegisterSuccessComponent },
       { path: 'post/:id', component: PostComponent },
       { path: 'update-profile', component: UpdateProfileComponent },
-      { path: 'draft', component: DraftComponent }
-     ]),
+      { path: 'draft', component: DraftComponent },
+      { path: 'register-success', component: RegisterSuccessComponent }
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

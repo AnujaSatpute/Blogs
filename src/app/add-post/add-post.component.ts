@@ -5,7 +5,6 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { PostService } from '../post.service';
 import { PostPayload } from './post-payload';
 
-
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -17,7 +16,7 @@ export class AddPostComponent implements OnInit {
 
   postPayload: PostPayload;
 
-  constructor(private formBuilder: FormBuilder , private localStorage: LocalStorageService, private postService: PostService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private localStorage: LocalStorageService, private postService: PostService, private router: Router) {
     this.addPostForm = this.formBuilder.group({
       title: ['', Validators.required],
       content: ['', Validators.required]
@@ -35,7 +34,8 @@ export class AddPostComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
+
   addPost() {
     this.postPayload.content = this.addPostForm.get('content').value;
     this.postPayload.title = this.addPostForm.get('title').value;
@@ -49,7 +49,7 @@ export class AddPostComponent implements OnInit {
       console.log(data);
       this.router.navigateByUrl("/home");
     }, error => {
-                  alert('Unsuccessful');
+      alert('Unsuccessful');
     });
 
   }
@@ -68,7 +68,11 @@ export class AddPostComponent implements OnInit {
       console.log(data);
       this.router.navigateByUrl("/home");
     }, error => {
-                  alert('Unsuccessful');
+      alert('Unsuccessful');
     });
   }
+  PostPayload(PostPayload: any) {
+    throw new Error('Method not implemented.');
+  }
+
 }
